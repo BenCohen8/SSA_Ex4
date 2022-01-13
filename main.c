@@ -70,5 +70,20 @@ int main()
             c=addEdge(NodeList,t);
         }
     }
+    while (NodeList)
+    {
+        pnode t=NodeList->next;
+        pedge e=NodeList->edges;
+        while (e)
+        {
+            pedge te=e->next;
+            free(e);
+            e=te;
+        }
+        
+        free(NodeList);
+        NodeList=t;
+    }
+    
     
 }
